@@ -52,3 +52,9 @@
     gap: var(--s-2);
   }
 }
+
+@media print {
+  .item {
+    break-inside: avoid;
+  }
+}

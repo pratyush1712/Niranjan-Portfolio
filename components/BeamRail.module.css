@@ -46,3 +46,9 @@
   letter-spacing: var(--track-mono);
   color: var(--dim);
 }
+
+@media print {
+  .rail {
+    display: none;
+  }
+}

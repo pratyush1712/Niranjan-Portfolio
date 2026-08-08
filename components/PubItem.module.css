@@ -98,3 +98,9 @@
     align-items: center;
   }
 }
+
+@media print {
+  .item {
+    break-inside: avoid;
+  }
+}

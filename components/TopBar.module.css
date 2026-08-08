@@ -87,3 +87,16 @@
     white-space: nowrap;
   }
 }
+
+@media print {
+  .topBar {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  .nav,
+  .cvLink,
+  .actions {
+    display: none;
+  }
+}

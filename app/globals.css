@@ -81,3 +81,33 @@ select {
     transition: none;
   }
 }
+
+@media print {
+  html {
+    --bench: #eff2f5;
+    --panel: #ffffff;
+    --panel-2: #f7f9fb;
+    --rule: #d8dee6;
+    --rule-soft: #e7ecf1;
+    --ink: #141920;
+    --muted: #59636f;
+    --dim: #626d7a;
+    --w1300: #5b33c4;
+    --w532: #0b7a48;
+    --shadow: none;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: var(--dim);
+  }
+
+  article {
+    break-inside: avoid;
+  }
+}
