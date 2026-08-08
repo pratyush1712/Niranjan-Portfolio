@@ -1,0 +1,54 @@
+.rail {
+  background: var(--panel-2);
+  border-top: var(--border) solid var(--rule);
+  border-bottom: var(--border) solid var(--rule);
+  padding-block: var(--s-4);
+}
+
+.inner {
+  display: block;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 24px;
+  overflow: visible;
+}
+
+.rule {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.beam {
+  stroke: var(--beam);
+  stroke-width: 1.5;
+  filter: var(--beam-glow);
+}
+
+.node {
+  fill: var(--panel-2);
+  stroke: var(--muted);
+  stroke-width: 1.25;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--s-2);
+}
+
+.labels span {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  color: var(--dim);
+}
+
+@media print {
+  .rail {
+    display: none;
+  }
+}

@@ -1,0 +1,102 @@
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  min-height: 62px;
+  border-bottom: var(--border) solid var(--rule);
+  background: var(--bench);
+  background: color-mix(in srgb, var(--bench) 88%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.inner {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+}
+
+.wordmark {
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+}
+
+.nav a {
+  font-family: var(--font-body);
+  font-size: var(--t-body-sm);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color var(--dur-base) var(--ease);
+}
+
+.nav a:hover {
+  color: var(--w532);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.cvLink {
+  padding: 0.45rem 0.7rem;
+  border: var(--border) solid var(--rule);
+  border-radius: var(--r-sharp);
+  background: var(--panel);
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+  text-decoration: none;
+  color: var(--ink);
+  transition:
+    border-color var(--dur-base) var(--ease),
+    color var(--dur-base) var(--ease);
+}
+
+.cvLink:hover {
+  border-color: var(--w532);
+  color: var(--w532);
+}
+
+@media (max-width: 960px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .wordmark {
+    max-width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media print {
+  .topBar {
+    position: static;
+    backdrop-filter: none;
+  }
+
+  .nav,
+  .cvLink,
+  .actions {
+    display: none;
+  }
+}

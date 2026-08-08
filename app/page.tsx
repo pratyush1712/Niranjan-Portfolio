@@ -1,64 +1,105 @@
-import { IlluminationToggle } from "@/components/IlluminationToggle";
+import { TopBar } from "@/components/TopBar";
+import { BeamRail } from "@/components/BeamRail";
+import { Hero } from "@/components/Hero";
+import { SectionHead } from "@/components/SectionHead";
+import { ThrustCard } from "@/components/ThrustCard";
+import { SystemCase } from "@/components/SystemCase";
+import { PubItem } from "@/components/PubItem";
+import { ExperienceItem } from "@/components/ExperienceItem";
+import { BenchColumn } from "@/components/BenchColumn";
+import { EducationCard } from "@/components/EducationCard";
+import { RecordColumn } from "@/components/RecordColumn";
+import { FooterCTA } from "@/components/FooterCTA";
+import { thrusts } from "@/content/research";
+import { publications } from "@/content/publications";
+import { experience } from "@/content/experience";
+import { education } from "@/content/education";
+import { benchGroups } from "@/content/skills";
+import { teaching, leadership, featuredProject } from "@/content/record";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main>
-      <header className={styles.topBar}>
-        <div className={`wrap ${styles.topBarInner}`}>
-          <a className={styles.wordmark} href="#top">
-            Niranjan V. Kulkarni
-          </a>
-          <div className={styles.topActions}>
-            <IlluminationToggle />
-            <a
-              className={styles.cvLink}
-              href="/cv/niranjan-vinay-kulkarni-academic-cv.pdf"
-            >
-              CV
-            </a>
+    <>
+      <TopBar />
+      <BeamRail />
+      <main>
+        <Hero />
+
+        <section id="research" className={`wrap ${styles.section}`}>
+          <SectionHead
+            tag="Research"
+            title="Current research"
+            lead="Biomedical optics and photonics, with a focus on optical coherence tomography, light scattering in biological tissue, and structure-function relationships in the brain."
+          />
+          <div className={styles.researchGrid}>
+            {thrusts.map((thrust) => (
+              <ThrustCard key={thrust.id} thrust={thrust} />
+            ))}
           </div>
-        </div>
-      </header>
+        </section>
 
-      <section id="top" className={`wrap ${styles.hero}`}>
-        <p className={styles.eyebrow}>
-          Biomedical optics · Optical coherence tomography · Neuroimaging
-        </p>
-        <h1>Niranjan Vinay Kulkarni</h1>
-        <p className={styles.lead}>
-          I study how optical coherence tomography signals relate to tissue
-          structure in the brain, combining quantitative signal analysis,
-          neuroimaging workflows, and biological validation.
-        </p>
-        <div className={styles.actions}>
-          <a
-            className={styles.primaryAction}
-            href="/cv/niranjan-vinay-kulkarni-academic-cv.pdf"
-          >
-            Download CV
-          </a>
-          <a
-            className={styles.secondaryAction}
-            href="https://www.linkedin.com/in/niranjan-kulkarni-95b5a4198/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </section>
+        <section id="device" className={`wrap ${styles.section}`}>
+          <SectionHead
+            tag="Featured system"
+            title="Columnar brain biopsy device"
+          />
+          <SystemCase />
+        </section>
 
-      <section className={`wrap ${styles.scaffoldNote}`} aria-label="Build status">
-        <span>Scaffold ready</span>
-        <p>
-          The framework, design tokens, fonts, theme initialization, CV asset,
-          linting, and deployment-ready project structure are in place. The
-          implementation agent should build the full portfolio from
-          <code> content/portfolio-content.md</code> and the files in
-          <code> design-system/</code>.
-        </p>
-      </section>
-    </main>
+        <section id="publications" className={`wrap ${styles.section}`}>
+          <SectionHead tag="Publications" title="Selected publications" />
+          <ul className={styles.pubList}>
+            {publications.map((publication) => (
+              <PubItem key={publication.id} publication={publication} />
+            ))}
+          </ul>
+        </section>
+
+        <section id="experience" className={`wrap ${styles.section}`}>
+          <SectionHead tag="Experience" title="Research and professional experience" />
+          <ul className={styles.experienceList}>
+            {experience.map((item) => (
+              <ExperienceItem key={item.id} item={item} />
+            ))}
+          </ul>
+        </section>
+
+        <section id="skills" className={`wrap ${styles.section}`}>
+          <SectionHead
+            tag="Bench capabilities"
+            title="Skills"
+            lead="Factual capability groups, not proficiency ratings."
+          />
+          <div className={styles.skillsGrid}>
+            {benchGroups.map((group) => (
+              <BenchColumn key={group.id} group={group} />
+            ))}
+          </div>
+        </section>
+
+        <section id="education" className={`wrap ${styles.section}`}>
+          <SectionHead tag="Education" title="Education" />
+          <div className={styles.educationGrid}>
+            {education.map((item) => (
+              <EducationCard key={item.id} item={item} />
+            ))}
+          </div>
+        </section>
+
+        <section id="record" className={`wrap ${styles.section}`}>
+          <SectionHead
+            tag="Record"
+            title="Teaching, mentorship, and leadership"
+          />
+          <div className={styles.recordGrid}>
+            <RecordColumn heading="Teaching & mentorship" entries={teaching} />
+            <RecordColumn heading="Leadership & activities" entries={leadership} />
+            <RecordColumn heading="Selected project" entries={[featuredProject]} />
+          </div>
+        </section>
+      </main>
+      <FooterCTA />
+    </>
   );
 }

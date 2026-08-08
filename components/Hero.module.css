@@ -1,0 +1,88 @@
+.hero {
+  padding-block: clamp(3.5rem, 9vw, 6rem) var(--s-9);
+}
+
+.eyebrow {
+  margin: 0 0 var(--s-5);
+  color: var(--w1300);
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  text-transform: uppercase;
+  letter-spacing: var(--track-mono);
+}
+
+.hero h1 {
+  max-width: 980px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--t-hero);
+  font-weight: 400;
+  line-height: var(--lh-hero);
+  letter-spacing: var(--track-hero);
+  color: var(--ink);
+}
+
+.role {
+  max-width: var(--read);
+  margin: var(--s-4) 0 0;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: var(--t-caption);
+}
+
+.lead {
+  max-width: var(--read);
+  margin: var(--s-5) 0 0;
+  color: var(--muted);
+  font-size: var(--t-lead);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-7);
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--r-sharp);
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: var(--track-chip);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-base) var(--ease),
+    color var(--dur-base) var(--ease),
+    background-color var(--dur-base) var(--ease);
+}
+
+.primaryAction {
+  border: var(--border) solid var(--ink);
+  background: var(--ink);
+  color: var(--bench);
+}
+
+.primaryAction:hover {
+  border-color: var(--w532);
+  background: var(--w532);
+  color: var(--on-accent);
+}
+
+.secondaryAction {
+  border: var(--border) solid var(--rule);
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.secondaryAction:hover {
+  border-color: var(--w532);
+  color: var(--w532);
+}
