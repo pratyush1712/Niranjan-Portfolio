@@ -7,11 +7,27 @@ import "@fontsource/ibm-plex-sans/600.css";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
+import { profile } from "@/content/profile";
+import { seo } from "@/content/seo";
 
 export const metadata: Metadata = {
-  title: "Niranjan Vinay Kulkarni — Biomedical optics researcher",
-  description:
-    "Biomedical optics researcher studying how optical coherence tomography signals relate to tissue structure in the brain.",
+  title: seo.title,
+  description: seo.description,
+  openGraph: {
+    title: seo.title,
+    description: seo.description,
+    type: "profile",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: seo.title,
+    description: seo.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 const themeScript = `
@@ -28,6 +44,27 @@ const themeScript = `
 })();
 `;
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.primaryLabel,
+  description: profile.alternativeLabel,
+  email: `mailto:${profile.email}`,
+  affiliation: {
+    "@type": "Organization",
+    name: "Cornell University",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ithaca",
+    addressRegion: "NY",
+    addressCountry: "US",
+  },
+  knowsAbout: seo.knowsAbout,
+  sameAs: seo.sameAs,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,6 +74,10 @@ export default function RootLayout({
     <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <meta
           name="theme-color"
           content="#EFF2F5"

@@ -1,0 +1,84 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-5);
+  border: var(--border) solid var(--rule);
+  border-left: 2px solid var(--accent, var(--dim));
+  border-radius: var(--r-card);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.label {
+  margin: 0 0 var(--s-3);
+  color: var(--accent, var(--dim));
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  text-transform: uppercase;
+  letter-spacing: var(--track-label);
+}
+
+.title {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-body);
+  font-size: var(--t-h3);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.summary {
+  margin: 0 0 var(--s-4);
+  color: var(--muted);
+  font-size: var(--t-body-sm);
+}
+
+.evidence {
+  margin: 0 0 var(--s-5);
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: var(--t-body-sm);
+  line-height: var(--lh-body);
+}
+
+.evidence li + li {
+  margin-top: var(--s-1);
+}
+
+.figureWell {
+  padding: var(--s-4);
+  border: var(--border) solid var(--rule-soft);
+  border-radius: var(--r-sharp);
+  background: var(--panel-2);
+}
+
+.figureWell svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  margin: var(--s-2) 0 var(--s-5);
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+}
+
+.whereItGoes {
+  margin-top: auto;
+  padding-top: var(--s-4);
+  border-top: var(--border) solid var(--rule-soft);
+}
+
+.whereItGoesLabel {
+  margin: 0 0 var(--s-1);
+  color: var(--ink);
+  font-size: var(--t-body-sm);
+  font-weight: 600;
+}
+
+.whereItGoes p + p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--t-body-sm);
+}
