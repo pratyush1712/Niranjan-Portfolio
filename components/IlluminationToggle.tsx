@@ -1,16 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import styles from "./IlluminationToggle.module.css";
 
 type Illumination = "light" | "dark";
 
-export function IlluminationToggle() {
-  const [mode, setMode] = useState<Illumination>("light");
+const illuminationEvent = "illuminationchange";
 
-  useEffect(() => {
-    setMode(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
-  }, []);
+function getIllumination(): Illumination {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+}
+
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener(illuminationEvent, onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+
+  return () => {
+    window.removeEventListener(illuminationEvent, onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
+export function IlluminationToggle() {
+  const mode = useSyncExternalStore(subscribe, getIllumination, () => "light");
 
   function apply(next: Illumination) {
     try {
@@ -20,7 +33,7 @@ export function IlluminationToggle() {
     }
 
     document.documentElement.dataset.theme = next;
-    setMode(next);
+    window.dispatchEvent(new Event(illuminationEvent));
   }
 
   return (
