@@ -83,7 +83,8 @@ select {
 }
 
 @media print {
-  html {
+  html[data-theme="light"],
+  html[data-theme="dark"] {
     --bench: #eff2f5;
     --panel: #ffffff;
     --panel-2: #f7f9fb;
