@@ -1,0 +1,47 @@
+.group {
+  display: inline-flex;
+  overflow: hidden;
+  border: var(--border) solid var(--rule);
+  border-radius: var(--r-sharp);
+  background: var(--panel);
+}
+
+.group button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0.35rem 0.55rem;
+  border: 0;
+  border-right: var(--border) solid var(--rule);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-chip);
+  text-transform: uppercase;
+}
+
+.group button:last-child {
+  border-right: 0;
+}
+
+.group button[aria-pressed="true"] {
+  background: var(--panel-2);
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
