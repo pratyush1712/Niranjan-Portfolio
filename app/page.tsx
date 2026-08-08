@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       <section className={`wrap ${styles.scaffoldNote}`} aria-label="Build status">
-        <span>SCaffold ready</span>
+        <span>Scaffold ready</span>
         <p>
           The framework, design tokens, fonts, theme initialization, CV asset,
           linting, and deployment-ready project structure are in place. The

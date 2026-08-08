@@ -24,7 +24,7 @@ export function IlluminationToggle() {
   }
 
   return (
-    <div className={styles.group} aria-label="Illumination mode">
+    <div className={styles.group} role="group" aria-label="Illumination mode">
       <button
         type="button"
         aria-pressed={mode === "light"}
